@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-dark-border;
+  }
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 rounded-lg transition-all duration-200 text-sm md:text-base;
+  }
+
+  .sidebar-link:hover {
+    @apply bg-dark-surface;
+  }
+
+  .sidebar-link.active {
+    @apply bg-blue-600 text-white;
+  }
+
+  .card {
+    @apply bg-dark-surface rounded-xl p-4 md:p-6 border border-dark-border shadow-lg;
+  }
+
+  .badge {
+    @apply px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium;
+  }
+
+  .badge-not-started {
+    @apply bg-gray-700 text-gray-300;
+  }
+
+  .badge-learning {
+    @apply bg-yellow-900 text-yellow-300;
+  }
+
+  .badge-confident {
+    @apply bg-green-900 text-green-300;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@layer utilities {
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation-name: slideUpFade;
+    animation-duration: 360ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+  }
+
+  .animate-slide-up-slow {
+    animation-duration: 520ms;
+  }
+}
